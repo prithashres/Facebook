@@ -3,7 +3,7 @@
 
 <head>
     <title>Facebook</title>
-    <link rel="stylesheet" href="fb1.css">
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -19,7 +19,7 @@
         <button id="button1" onclick="validateForm()">Log In</button>
         <a href="#" class="link">Forgot Password?</a>
         <hr>
-        <a href="fbnew.html"><button class="button2">Create New Account</button></a>
+        <a href="../Register/index.html"><button class="button2">Create New Account</button></a>
     </div>
     <br>
     <p><b>Create a Page</b> for a celebrity, brand, or business</p>
@@ -55,6 +55,7 @@
                 passError.innerHTML = "Please enter your password";
                 return false;
             }
+            return true;
         }
     </script>
 </body>
