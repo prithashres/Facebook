@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Facebook</title>
+    <link rel="stylesheet" href="fb1.css">
+
+</head>
+
+<body>
+    <div class="card">
+        <form onsubmit="return validateForm()">
+            <input type="text" id="login" name="login" placeholder="Email address or phone number">
+            <p id="tst"></p>
+            <span id="email-error" class="error"></span>
+            <input type="password" id="pwd" placeholder="Password">
+            <span id="pass-error" class="error"></span>
+        </form>
+        <button id="button1" onclick="validateForm()">Log In</button>
+        <a href="#" class="link">Forgot Password?</a>
+        <hr>
+        <a href="fbnew.html"><button class="button2">Create New Account</button></a>
+    </div>
+    <br>
+    <p><b>Create a Page</b> for a celebrity, brand, or business</p>
+
+    <script>
+        function validateForm() {
+            var email = document.getElementById("login").value;
+
+            var password = document.getElementById("pwd").value;
+
+            var emailError = document.getElementById("email-error");
+
+            var passError = document.getElementById("pass-error");
+
+
+            if (email == "" && password == "") {
+                emailError.innerHTML = "Please enter your email address or phone number";
+                passError.innerHTML = "Please enter your password";
+                return false;
+            }
+            console.log("email:", email, email.length);
+
+            console.log("password:", password);
+            if (email == "") {
+
+                emailError.innerHTML = "Please enter your email address or phone number";
+                return false;
+
+            }
+
+            if (password == "") {
+
+                passError.innerHTML = "Please enter your password";
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>
