@@ -108,3 +108,7 @@ img {
     margin-top: 3px;
     width: 50%;
 }
+
+.error{
+    color:red;
+}

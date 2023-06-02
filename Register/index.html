@@ -8,17 +8,21 @@
 
 <body>
     <div class="main">
+        <p id="tst"></p>
         <div class="test">
             <image src="facebook.jpg" alt="This is Facebook" style="width:150px"></image>
             <form>
                 <label for="name">Name:</label><br>
                 <input type="text" id="name" name="name" placeholder="Full Name" required>
                 <br>
+                <span id="name-error" class="error"></span>
+                <br>
         </div>
 
         <div class="main1">
             <label for="description">Description:</label><br>
             <textarea id="description" name="description" placeholder="Description Here" required></textarea>
+            <span id="description-error" class="error"></span>
             <br>
         </div>
 
@@ -48,11 +52,36 @@
             <br><br>
         </div>
 
-        <button class="button1">Submit</button>
+        <button class="button1" onclick="validateForm()">Submit</button>
         </form>
 
     </div>
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var description = document.getElementById("description").value;
+            var nameError = document.getElementById("name-error");
+            var descriptionError = document.getElementById("description-error");
 
+            if (name == "" && description == "") {
+                nameError.innerHTML = "Please enter your Full Name";
+                descriptionError.innerHTML = "Please enter your description";
+                return false;
+            }
+
+            if (name == "") {
+                nameError.innerHTML = "Please enter your Full Name";
+                return false;
+            }
+
+            if (description == "") {
+                descriptionError.innerHTML = "Please enter your description";
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 </body>
 
 </html>
