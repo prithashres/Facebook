@@ -75,55 +75,69 @@
     </div>
     <script>
         function validateForm(event) {
-            event.preventDefault();
-            var name = document.getElementById("name").value;
-            var description = document.getElementById("description").value;
-            var gender = document.getElementById("gender");
-            var dob = document.getElementById("dob").value;
+    event.preventDefault();
 
+    var name = document.getElementById("name").value;
+    var description = document.getElementById("description").value;
+    var gender = document.querySelector('input[name="gender"]:checked');
+    var dob = document.getElementById("dob").value;
+    var interest = document.querySelectorAll('input[name="interest"]:checked');
+    var language = document.getElementById("language");
 
-            var nameError = document.getElementById("name-error");
-            var descriptionError = document.getElementById("description-error");
-            var genderError = document.getElementById("gender-error");
-            var dobError = document.getElementById("dob-error");
+    var nameError = document.getElementById("name-error");
+    var descriptionError = document.getElementById("description-error");
+    var genderError = document.getElementById("gender-error");
+    var dobError = document.getElementById("dob-error");
+    var interestError = document.getElementById("interest-error");
+    var languageError = document.getElementById("language-error");
 
-            if (name == "" && description == "" && (!document.querySelector('input[name="gender"]:checked')) && dob == "") {
-                nameError.innerHTML = "Please enter your Name";
-                descriptionError.innerHTML = "Please enter your Description";
-                genderError.innerHTML = "Please select your Gender";
-                dobError.innerHTML = "Please select DOB";
+    // Clear previous error messages
+    nameError.innerHTML = "";
+    descriptionError.innerHTML = "";
+    genderError.innerHTML = "";
+    dobError.innerHTML = "";
+    interestError.innerHTML = "";
+    languageError.innerHTML = "";
 
-                return false;
-            }
+    var hasError = false;
 
-            if (name == "") {
-                nameError.innerHTML = "Please enter your Name";
-                return false;
-            }
+    if (!name) {
+        nameError.innerHTML = "Please enter your Name";
+        hasError = true;
+    }
 
-            if (description == "") {
-                descriptionError.innerHTML = "Please enter your Description";
-                return false;
-            }
+    if (!description) {
+        descriptionError.innerHTML = "Please enter your Description";
+        hasError = true;
+    }
 
-            if (!document.querySelector('input[name="gender"]:checked')) {
-                genderError.innerHTML = "Please select your Gender";
-                return false;
-            }
+    if (!gender) {
+        genderError.innerHTML = "Please select your Gender";
+        hasError = true;
+    }
 
-            if (dob == "") {
-                dobError.innerHTML = "Please select your Date of Birth";
-                return false;
-            }
+    if (!dob) {
+        dobError.innerHTML = "Please select your Date of Birth";
+        hasError = true;
+    }
 
-            console.log("Name:", name);
-            console.log("Description:", description);
-            console.log("Gender:", gender.value);
-            console.log("Date of Birth:", dob);
+    if (interest.length === 0) {
+        interestError.innerHTML = "Please select at least one interest";
+        hasError = true;
+    }
 
+    if (language.value === "") {
+        languageError.innerHTML = "Please select a language";
+        hasError = true;
+    }
 
-            return true;
-        }
+    if (hasError) {
+        return false;
+    }
+
+    return true;
+}
+
     </script>
 </body>
 
