@@ -12,27 +12,27 @@
         <div class="test">
             <image src="facebook.jpg" alt="This is Facebook" style="width:150px"></image>
             <form>
-                <label for="name">Name:</label><br>
-                <input type="text" id="name" name="name" placeholder="Full Name" required>
-                <br>
+                <label for="name">Full Name:</label><br>
+                <input type="text" id="name" name="name" placeholder="Full Name Here" required>
                 <span id="name-error" class="error"></span>
-                <br>
         </div>
 
         <div class="main1">
             <label for="description">Description:</label><br>
             <textarea id="description" name="description" placeholder="Description Here" required></textarea>
             <span id="description-error" class="error"></span>
-            <br>
+
         </div>
 
         <div class="main2">
-            <label for="gender">Gender:</label>
+            <label for="gender">Gender:</label><br>
             <input type="radio" id="male" name="gender" value="male">
             <label for="male">Male</label>
-            <input type="radio" id="female" name="gender" value="female">
-            <label for="female">Female</label>
             <br>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label><br>
+            <span id="gender-error" class="error"></span>
+
         </div>
 
         <div class="main3">
@@ -43,15 +43,31 @@
             <label for="interest3">Basketball</label>
             <input type="checkbox" id="football" name="interest" value="football">
             <label for="interest3">Football</label>
-            <br>
+            <span id="interest-error" class="error"></span>
         </div>
 
         <div class="main4">
             <label for="dob">Date of Birth:</label>
             <input type="date" id="dob" name="dob">
             <br><br>
+            <span id="dob-error" class="error"></span>
         </div>
 
+        <div class="main5">
+            <label for="language">Language:</label>
+            <select id="language" name="language">
+                <option value="">Select a Language</option>
+                <option value="english">English</option>
+                <option value="spanish">Nepali</option>
+                <option value="french">Hindi</option>
+                <option value="german">German</option>
+            </select>
+
+            <span id="language-error" class="error"></span>
+        </div>
+        <br>
+        <hr>
+        <br>
         <button class="button1" onclick="validateForm(event)">Submit</button>
 
         </form>
@@ -59,39 +75,56 @@
     </div>
     <script>
         function validateForm(event) {
-            event.preventDefault(); // Prevent the default form submission behavior
-
+            event.preventDefault();
             var name = document.getElementById("name").value;
             var description = document.getElementById("description").value;
+            var gender = document.getElementById("gender");
+            var dob = document.getElementById("dob").value;
+
+
             var nameError = document.getElementById("name-error");
             var descriptionError = document.getElementById("description-error");
+            var genderError = document.getElementById("gender-error");
+            var dobError = document.getElementById("dob-error");
 
-            if (name == "" && description == "") {
-                nameError.innerHTML = "Please enter your Full Name";
-                descriptionError.innerHTML = "Please enter your description";
+            if (name == "" && description == "" && (!document.querySelector('input[name="gender"]:checked')) && dob == "") {
+                nameError.innerHTML = "Please enter your Name";
+                descriptionError.innerHTML = "Please enter your Description";
+                genderError.innerHTML = "Please select your Gender";
+                dobError.innerHTML = "Please select DOB";
+
                 return false;
             }
 
-            console.log("name:", name, name.length);
-
             if (name == "") {
-                nameError.innerHTML = "Please enter your Full Name";
+                nameError.innerHTML = "Please enter your Name";
                 return false;
             }
 
             if (description == "") {
-                descriptionError.innerHTML = "Please enter your description";
+                descriptionError.innerHTML = "Please enter your Description";
                 return false;
             }
 
-            console.log("description:", description);
+            if (!document.querySelector('input[name="gender"]:checked')) {
+                genderError.innerHTML = "Please select your Gender";
+                return false;
+            }
+
+            if (dob == "") {
+                dobError.innerHTML = "Please select your Date of Birth";
+                return false;
+            }
+
+            console.log("Name:", name);
+            console.log("Description:", description);
+            console.log("Gender:", gender.value);
+            console.log("Date of Birth:", dob);
+
 
             return true;
         }
     </script>
-
-
-
 </body>
 
 </html>

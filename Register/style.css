@@ -1,85 +1,115 @@
 .main {
     margin-left: 500px;
-    padding:7px;
-    padding-top:30px;
-    padding-bottom: 30px;
-    margin-top: 50px;
-    width:300px;
+    padding: 7px;
+    padding-top: 10px;
+    padding-bottom: 40px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 300px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.517), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    align-items:center;
-    justify-content:center;
-    text-align:left;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
     border-radius: 7px;
-    color:black;
-    background-color:rgb(255, 255, 255)
-    
-    
+    color: black;
+    background-color: rgb(255, 255, 255);
 }
 
-.main1{
+.main1 {
     margin-top: 0px;
     margin-left: -5px;
-    padding:7px;
-    padding-top:30px;
+    padding: 7px;
+    padding-top: 10px;
     padding-bottom: 10px;
     margin-top: 5px;
-    width:200px;
-    align-items:center;
-    justify-content:center;
-    text-align:left;
+    width: 200px;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
     border-radius: 7px;
-    color:black;
-    background-color:rgb(255, 255, 255)
+    color: black;
+    background-color: rgb(255, 255, 255);
 }
 
-.main2{
+.test {
     margin-top: 0px;
     margin-left: -5px;
-    padding:7px;
-    padding-top:30px;
+    padding: 7px;
+    padding-top: 10px;
     padding-bottom: 10px;
     margin-top: 5px;
-    width:200px;
-    align-items:center;
-    justify-content:center;
-    text-align:left;
+    width: 200px;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
     border-radius: 7px;
-    color:black;
-    background-color:rgb(255, 255, 255)
+    color: black;
+    background-color: rgb(255, 255, 255);
 }
 
-.main3{
+.main2 {
     margin-top: 0px;
     margin-left: -5px;
-    padding:7px;
-    padding-top:30px;
+    padding: 7px;
+    padding-top: 10px;
     padding-bottom: 10px;
     margin-top: 5px;
-    width:290px;
-    align-items:center;
-    justify-content:center;
-    text-align:left;
+    width: 200px;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
     border-radius: 7px;
-    color:black;
-    background-color:rgb(255, 255, 255)
+    color: black;
+    background-color: rgb(255, 255, 255);
 }
 
-.main4{
+.main3 {
     margin-top: 0px;
     margin-left: -5px;
-    padding:7px;
-    padding-top:30px;
+    padding: 7px;
+    padding-top: 10px;
     padding-bottom: 10px;
     margin-top: 5px;
-    width:200px;
-    align-items:center;
-    justify-content:center;
-    text-align:left;
+    width: 290px;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
     border-radius: 7px;
-    color:black;
-    background-color:rgb(255, 255, 255)
+    color: black;
+    background-color: rgb(255, 255, 255);
 }
 
+.main4 {
+    margin-top: 0px;
+    margin-left: -5px;
+    padding: 7px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 5px;
+    width: 200px;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    border-radius: 7px;
+    color: black;
+    background-color: rgb(255, 255, 255);
+}
+
+.main5 {
+    margin-top: 0px;
+    margin-left: -5px;
+    padding: 7px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: -5%;
+    width: 200px;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    border-radius: 7px;
+    color: black;
+    background-color: rgb(255, 255, 255);
+}
 
 .button1 {
     margin-left: 36%;
@@ -100,15 +130,34 @@ h1{
 img {
     border: 5px solid white;
     border-radius: 4px;
-    padding: 3px;
-    width: 200px;
+    padding: 1px;
     display: inline;
     margin-left: 60px;
     margin-right: auto;
-    margin-top: 3px;
+    margin-top: -10%;
     width: 50%;
 }
 
 .error{
     color:red;
+}
+
+.main input[type="text"],
+.main textarea ,
+.main select,
+.main input[type="date"]{
+  width: 140%;
+}
+
+.main input,
+.main1 textarea,
+.main4 input[type="date"],
+.main5 select {
+  height: 30px;
+}
+
+.main3 input[type="checkbox"],
+.main2 input[type="radio"] {
+  vertical-align: middle;
+  margin-top: 5px;
 }
