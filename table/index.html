@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>TABLE</title>
+</head>
+
+<body>
+    <table id="user">
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone Number</th>
+            <th>Date of Birth</th>
+            <th>Age</th>
+            <th>Gender</th>
+        </tr>
+    </table>
+
+    <script>
+        const data = [
+            {
+                name: "Pritha",
+                address: "Baneshwor",
+                phoneNumber: "9861542523",
+                dateOfBirth: "2000-01-09",
+                age: 23,
+                gender: "Female"
+            },
+            {
+                name: "Riya",
+                address: "Bhaktapur",
+                phoneNumber: "98236424",
+                dateOfBirth: "2002-03-27",
+                age: 21,
+                gender: "Female"
+            },
+            {
+                name: "Sanil",
+                address: "Kritipur",
+                phoneNumber: "23564565",
+                dateOfBirth: "2001-01-15",
+                age: 22,
+                gender: "Male"
+            }
+        ];
+
+        function displayData() {
+            const user = document.getElementById('user');
+
+            data.forEach(function (obj) {
+                const row = document.createElement('tr');
+
+                Object.values(obj).forEach(function (value) {
+                    const cell = document.createElement('td');
+                    cell.textContent = value;
+                    row.appendChild(cell);
+                });
+
+                user.appendChild(row);
+            });
+        }
+
+        displayData(); 
+    </script>
+</body>
+
+</html>

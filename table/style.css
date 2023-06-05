@@ -1,0 +1,18 @@
+#user {
+    border: 1px solid black; 
+    width: 100%;
+    background-color:rgb(30, 30, 157)
+}
+
+th, td {
+    border: 1px solid black; 
+    text-align: center;
+    padding: 8px;
+    background-color:rgb(198, 198, 242);
+    color:white;
+}
+
+th {
+    background-color: rgba(236, 131, 212, 0.917);
+    color:white;
+}
