@@ -2,6 +2,7 @@
     border: 3px solid black;
     width: 100%;
     background-color: rgb(171, 166, 166);
+    border-radius: 8px;
 }
 
 th,
@@ -21,10 +22,11 @@ th {
 #inputBox {
     border: 1px solid black;
     margin-top: 50px;
-    margin-left: 250px;
+    margin-left: 400px;
     padding: 10px;
-    width: 60%;
+    width: 30%;
     background-color: rgb(171, 166, 166);
+    border-radius: 7px;
 }
 
 input[type="text"],
@@ -38,10 +40,17 @@ select {
     display: flex;
     justify-content: center;
     color: black;
+
 }
 
 .btn button:hover {
     background-color: lightblue;
     color: black;
     cursor: pointer;
+}
+
+h1{
+    text-align:  center;
+    color:white;
+    background-color: rgb(95, 95, 218);
 }
