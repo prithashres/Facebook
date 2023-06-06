@@ -18,6 +18,53 @@
         </tr>
     </table>
 
+    <div id="inputBox">
+        <div class="one">
+            <label for="name"><b>Name:</b></label></label><br>
+            <input type="text" id="name" placeholder="Enter your name">
+            <br><br>
+        </div>
+
+        <div class="two">
+            <label for="address"><b>Address:</b></label><br>
+            <input type="text" id="address" placeholder="Enter your address">
+        </div>
+        <br><br>
+
+        <div class="three">
+            <label for="phone"><b>Phone Number:</b></label><br>
+            <input type="text" id="phone" placeholder="Enter your phone number">
+        </div>
+        <br><br>
+
+        <div class="four">
+            <label for="dob"><b>Date of Birth:</b></label><br>
+            <input type="date" id="dob">
+        </div>
+        <br><br>
+
+        <div class="five">
+            <label for="age"><b>Age:</b></label><br>
+            <input type="number" id="age" placeholder="Enter your age">
+        </div>
+        <br><br>
+
+        <div class="six" 
+        <label for="gender"><b>Gender:</b></label><br>
+            <select id="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <br>
+        <br>
+
+        <div class="btn">
+            <button onclick="addData()">Add</button>
+        </div>
+    </div>
+
     <script>
         const data = [
             {
@@ -71,8 +118,52 @@
             });
         }
 
-        displayData(); 
+        function addData() {
+            const nameInput = document.getElementById('name');
+            const addressInput = document.getElementById('address');
+            const phoneInput = document.getElementById('phone');
+            const dobInput = document.getElementById('dob');
+            const ageInput = document.getElementById('age');
+            const genderInput = document.getElementById('gender');
+
+            const newRow = document.createElement('tr');
+            const nameCell = document.createElement('td');
+            const addressCell = document.createElement('td');
+            const phoneCell = document.createElement('td');
+            const dobCell = document.createElement('td');
+            const ageCell = document.createElement('td');
+            const genderCell = document.createElement('td');
+
+            nameCell.textContent = nameInput.value;
+            addressCell.textContent = addressInput.value;
+            phoneCell.textContent = phoneInput.value;
+            dobCell.textContent = dobInput.value;
+            ageCell.textContent = ageInput.value;
+            genderCell.textContent = genderInput.value;
+
+            newRow.appendChild(nameCell);
+            newRow.appendChild(addressCell);
+            newRow.appendChild(phoneCell);
+            newRow.appendChild(dobCell);
+            newRow.appendChild(ageCell);
+            newRow.appendChild(genderCell);
+
+            const userTable = document.getElementById('user');
+            userTable.appendChild(newRow);
+
+            nameInput.value = '';
+            addressInput.value = '';
+            phoneInput.value = '';
+            dobInput.value = '';
+            ageInput.value = '';
+            genderInput.value = 'male';
+        }
+
+        displayData();
+
+
     </script>
 </body>
 
 </html>
+

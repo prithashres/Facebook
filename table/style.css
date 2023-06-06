@@ -1,18 +1,47 @@
 #user {
-    border: 1px solid black; 
+    border: 3px solid black;
     width: 100%;
-    background-color:rgb(30, 30, 157)
+    background-color: rgb(171, 166, 166);
 }
 
-th, td {
-    border: 1px solid black; 
+th,
+td {
+    border: 3px solid black;
     text-align: center;
     padding: 8px;
-    background-color:rgb(198, 198, 242);
-    color:white;
+    background-color: white;
+    color: black;
 }
 
 th {
-    background-color: rgba(236, 131, 212, 0.917);
-    color:white;
+    background-color: rgb(123, 193, 234);
+    color: white;
+}
+
+#inputBox {
+    border: 1px solid black;
+    margin-top: 50px;
+    margin-left: 250px;
+    padding: 10px;
+    width: 60%;
+    background-color: rgb(171, 166, 166);
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+select {
+    width: 95%;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    color: black;
+}
+
+.btn button:hover {
+    background-color: lightblue;
+    color: black;
+    cursor: pointer;
 }
