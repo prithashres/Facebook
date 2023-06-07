@@ -8,18 +8,26 @@
 
 <body>
     <h1>USER TABLE</h1>
+    <div>
+        <input type="text" id="myInput" onkeyup="search()" placeholder="Search for names.." title="Type in a name">
+    </div>
     <table id="user">
-        <tr>
-            <th>Name</th>
-            <th>Address</th>
-            <th>Phone Number</th>
-            <th>Date of Birth</th>
-            <th>Age</th>
-            <th>Gender</th>
-        </tr>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phone Number</th>
+                <th>Date of Birth</th>
+                <th>Age</th>
+                <th>Gender</th>
+            </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
     </table>
+    
 
     <div id="inputBox">
+        <p><b>ADD NEW USERS</b> </p>
         <div class="one">
             <label for="name"><b>Name:</b></label></label><br>
             <input type="text" id="name" placeholder="Enter your name">
@@ -50,16 +58,15 @@
         </div>
         <br><br>
 
-        <div class="six" 
-        <label for="gender"><b>Gender:</b></label><br>
+        <div class="six">
+            <label for="gender"><b>Gender:</b></label><br>
             <select id="gender">
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Other">Other</option>
             </select>
         </div>
-        <br>
-        <br>
+        <br><br>
 
         <div class="btn">
             <button onclick="addData()">Add</button>
@@ -85,6 +92,14 @@
                 gender: "Female"
             },
             {
+                name: "Priya",
+                address: "Bhaktapur",
+                phoneNumber: "98236424",
+                dateOfBirth: "2002-03-27",
+                age: 21,
+                gender: "Female"
+            },
+            {
                 name: "Sanil",
                 address: "Kritipur",
                 phoneNumber: "23564565",
@@ -100,24 +115,23 @@
                 age: 23,
                 gender: "Male"
             }
-
         ];
 
-        function displayData() {
-            const user = document.getElementById('user');
 
-            data.forEach(function (obj) {
-                const row = document.createElement('tr');
+        const tbody = document.getElementById("tbody");
 
-                Object.values(obj).forEach(function (value) {
-                    const cell = document.createElement('td');
-                    cell.textContent = value;
-                    row.appendChild(cell);
-                });
+        data.forEach((item) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${item.name}</td>
+                <td>${item.address}</td>
+                <td>${item.phoneNumber}</td>
+                <td>${item.dateOfBirth}</td>
+                <td>${item.age}</td>
+                <td>${item.gender}</td>`;
 
-                user.appendChild(row);
-            });
-        }
+            tbody.appendChild(row);
+        });
 
         function addData() {
             const nameInput = document.getElementById('name');
@@ -157,14 +171,33 @@
             phoneInput.value = '';
             dobInput.value = '';
             ageInput.value = '';
-            genderInput.value = 'male';
+            genderInput.value = 'Male';
         }
 
-        displayData();
+        function search() {
+            const input = document.getElementById("myInput");
+            const filter = input.value.toUpperCase();
+            const rows = Array.from(tbody.getElementsByTagName("tr"));
 
+            rows.filter((row) => {
+                const nameCol = row.getElementsByTagName("td")[0]; //each row ko 1st td lincha with column 0 ie name column
+
+                if (nameCol) {
+                    const nameValue = nameCol.textContent || nameCol.innerText; //if name col exists, it retrieves the text content of the column
+                    const nameMatch = nameValue.toUpperCase().includes(filter); // compares uppercase name value with filter.
+                    //const nameMatch = nameValue.toUpperCase() == filter;
+                    //if == use gareko bhaye it would only show the rows where the entire text content of the name column  matches the filter string exactly.
+                    if (nameMatch) {
+                        row.style.display = "";
+                    } else {
+                        row.style.display = "none";
+                    }
+                    // Display the row if nameMatch exists, otherwise hide it
+                }
+            });
+        }
 
     </script>
 </body>
 
 </html>
-
