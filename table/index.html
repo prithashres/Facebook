@@ -9,7 +9,8 @@
 <body>
     <h1>USER TABLE</h1>
     <div>
-        <input type="text" id="myInput" onkeyup="search()" placeholder="Search for names.." title="Type in a name">
+        <input type="text" id="myInput" placeholder="Search for names.." title="Type in a name">
+        <button id="button1" onclick="searchHandler()">Search</button>
     </div>
     <table id="user">
         <thead>
@@ -24,7 +25,7 @@
         </thead>
         <tbody id="tbody"></tbody>
     </table>
-    
+
 
     <div id="inputBox">
         <p><b>ADD NEW USERS</b> </p>
@@ -74,7 +75,7 @@
     </div>
 
     <script>
-        const data = [
+        var data = [
             {
                 name: "Pritha",
                 address: "Baneshwor",
@@ -117,21 +118,24 @@
             }
         ];
 
+        function myfun() {
+            const tbody = document.getElementById("tbody");
 
-        const tbody = document.getElementById("tbody");
+            data.forEach((item) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>${item.address}</td>
+                    <td>${item.phoneNumber}</td>
+                    <td>${item.dateOfBirth}</td>
+                    <td>${item.age}</td>
+                    <td>${item.gender}</td>`;
 
-        data.forEach((item) => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${item.name}</td>
-                <td>${item.address}</td>
-                <td>${item.phoneNumber}</td>
-                <td>${item.dateOfBirth}</td>
-                <td>${item.age}</td>
-                <td>${item.gender}</td>`;
+                tbody.appendChild(row);
+            });
+        }
 
-            tbody.appendChild(row);
-        });
+        myfun();
 
         function addData() {
             const nameInput = document.getElementById('name');
@@ -174,29 +178,29 @@
             genderInput.value = 'Male';
         }
 
-        function search() {
-            const input = document.getElementById("myInput");
-            const filter = input.value.toUpperCase();
-            const rows = Array.from(tbody.getElementsByTagName("tr"));
+        function searchHandler() {
+            const searchText = document.getElementById("myInput").value.toUpperCase();
+            const tbody = document.getElementById("tbody");
 
-            rows.filter((row) => {
-                const nameCol = row.getElementsByTagName("td")[0]; //each row ko 1st td lincha with column 0 ie name column
+            tbody.innerHTML = ""; //  existing table rows lai clear garne
 
-                if (nameCol) {
-                    const nameValue = nameCol.textContent || nameCol.innerText; //if name col exists, it retrieves the text content of the column
-                    const nameMatch = nameValue.toUpperCase().includes(filter); // compares uppercase name value with filter.
-                    //const nameMatch = nameValue.toUpperCase() == filter;
-                    //if == use gareko bhaye it would only show the rows where the entire text content of the name column  matches the filter string exactly.
-                    if (nameMatch) {
-                        row.style.display = "";
-                    } else {
-                        row.style.display = "none";
-                    }
-                    // Display the row if nameMatch exists, otherwise hide it
-                }
+            const filteredData = data.filter((user) => {
+                return user.name.toUpperCase().includes(searchText);
+            });
+
+            filteredData.forEach((item) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>${item.address}</td>
+                    <td>${item.phoneNumber}</td>
+                    <td>${item.dateOfBirth}</td>
+                    <td>${item.age}</td>
+                    <td>${item.gender}</td>`;
+
+                tbody.appendChild(row);
             });
         }
-
     </script>
 </body>
 
